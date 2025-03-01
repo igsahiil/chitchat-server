@@ -8,7 +8,15 @@ import connectionSchema from "../modules/connections/connectionSchema.js";
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-    cors: { origin: "*" },
+    cors: { 
+        origin: "*",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Authorization", "Content-Type"],
+        credentials: true
+    },
+    transports: ['websocket', 'polling'],
+    allowEIO3: true,
+    path: "/socket.io/"
 });
 
 // Map to store user ID to socket ID mappings
