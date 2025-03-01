@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo No build required for Node.js Express application
+  post_build:
+    commands:
+      - echo Post-build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+    - 'node_modules/**/*'
+  base-directory: '.'
+
+cache:
+  paths:
+    - 'node_modules/**/*'
