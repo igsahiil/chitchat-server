@@ -6,7 +6,7 @@ import authRoutes from "./routes/authRoutes.js";
 import db from "./config/db.js";
 import protectedRoutes from "./routes/protectedRoutes.js";
 import IsAuthenticated from "./utils/middleware.js";
-import { io } from "./websocket/socket.js";
+// import { io } from "./websocket/socket.js";
 
 dotenv.config();
 
