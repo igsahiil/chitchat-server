@@ -9,14 +9,16 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
     cors: { 
-        origin: "*",
+        origin: ["http://localhost:5173", "http://chitchatweb.ap-south-1.elasticbeanstalk.com"],
         methods: ["GET", "POST"],
         allowedHeaders: ["Authorization", "Content-Type"],
         credentials: true
     },
     transports: ['websocket', 'polling'],
+    path: "/socket.io/",
     allowEIO3: true,
-    path: "/socket.io/"
+    pingTimeout: 60000,
+    pingInterval: 25000
 });
 
 // Map to store user ID to socket ID mappings
